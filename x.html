@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forest Fire Prevention</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: #121212;
+      color: #ffffff;
+    }
+    .container {
+      background: rgba(50, 50, 50, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+    .header {
+      font-weight: bold;
+      color: #ff9800;
+    }
+    .footer {
+      background: rgba(20, 20, 20, 0.9);
+      padding: 20px;
+      color: white;
+    }
+    input, label {
+      color: #ffffff;
+    }
+    .input-field input:focus {
+      border-bottom: 1px solid #ff9800 !important;
+      box-shadow: 0 1px 0 0 #ff9800 !important;
+    }
+  </style>
+</head>
+<body>
+  <nav class="black">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">FireGuard</a>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#" class="white-text">Home</a></li>
+        <li><a href="#" class="white-text">About</a></li>
+        <li><a href="#" class="white-text">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h3 class="header center">Forest Fire Prevention</h3>
+    <p class="center">Predict the probability of forest-fire occurrence.</p>
+
+    <div class="row">
+      <form action='/predict' method="post" class="col s12">
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="temperature" name="Temperature" type="text" class="validate" placeholder="Temperature in °C">
+            <label for="temperature">Temperature</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="oxygen" name="Oxygen" type="text" class="validate" placeholder="Oxygen content in ppm">
+            <label for="oxygen">Oxygen</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="humidity" name="Humidity" type="text" class="validate" placeholder="Humidity %">
+            <label for="humidity">Humidity</label>
+          </div>
+        </div>
+        <div class="row center">
+          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+        </div>
+      </form>
+    </div>
+    <div class="center">
+      <h5>{{pred}}</h5>
+    </div>
+  </div>
+
+  <footer class="footer center">
+    <p>&copy; 2025 FireGuard | Protecting Forests, Saving Lives</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      M.AutoInit();
+    });
+  </script>
+</body>
+</html>
